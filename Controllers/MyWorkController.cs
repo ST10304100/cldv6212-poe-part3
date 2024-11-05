@@ -1,5 +1,6 @@
 ﻿using CLDV6212_PART_3.Data;
 using CLDV6212_PART_3.Models;
+using CLDV6212_PART_3.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +13,13 @@ namespace CLDV6212_PART_3.Controllers
     {
         private readonly ApplicationDBContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly QueueService _queueService;
 
-        public MyWorkController(ApplicationDBContext context, UserManager<IdentityUser> userManager)
+        public MyWorkController(ApplicationDBContext context, UserManager<IdentityUser> userManager, QueueService queueService)
         {
             _context = context;
             _userManager = userManager;
+            _queueService = queueService;
         }
 
         public async Task<IActionResult> Index()
@@ -135,6 +138,10 @@ namespace CLDV6212_PART_3.Controllers
 
             openOrder.Status = "Pending";
             await _context.SaveChangesAsync();
+
+            // Send a message to the queue
+            string message = $"Processing Order: Order ID: {openOrder.OrderId}";
+            await _queueService.SendMessageAsync("processorders", message);
 
             return Json(new { success = true });
 

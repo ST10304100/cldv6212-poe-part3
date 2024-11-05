@@ -1,5 +1,6 @@
 ﻿using CLDV6212_PART_3.Data;
 using CLDV6212_PART_3.Models;
+using CLDV6212_PART_3.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +12,13 @@ namespace CLDV6212_PART_3.Controllers
     {
         private readonly ApplicationDBContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+     
 
         public OrdersController(ApplicationDBContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
+            
         }
 
 
