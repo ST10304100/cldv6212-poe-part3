@@ -1,8 +1,195 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="banner">
+    <img src="~/css/uploads/banner.png" alt="ABC Retailers Banner" class="banner-image">
+    <div class="banner-content">
+
+
+
+
+        <!-- #endregion --></h1>
+        <p>For Riders, By Riders</p>
+    </div>
 </div>
+
+
+<div id="about" class="section wb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="message-box">
+                    <h4>About Us</h4>
+                    <h2>Welcome to ABC Retailers</h2>
+                    <p class="lead">We're delighted to have you here. At ABC Retail, we are committed to delivering an exceptional shopping experience with a vast selection of quality products, quick order processing, and reliable customer service. Whether you're shopping for essentials or upgrades, we aim to make every experience enjoyable and effortless. Explore our collections, discover new favorites, and let us help you find exactly what you need!</p>
+
+                    <p>  </p>
+
+                    <a href="#services" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
+                </div><!-- end messagebox -->
+            </div><!-- end col -->
+
+            <div class="col-md-6">
+                <div class="post-media wow fadeIn">
+                    <img src="~/uploads/about_01.jpg" alt="" class="img-responsive img-rounded">
+                    <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                </div><!-- end media -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+
+        <hr class="hr1">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="post-media wow fadeIn">
+                    <img src="~/uploads/about_02.jpg" alt="" class="img-responsive img-rounded">
+                </div><!-- end media -->
+            </div><!-- end col -->
+
+            <div class="col-md-6">
+                <div class="message-box">
+                    <h4>Who We are</h4>
+                    <h2>We Are ABC Retailers</h2>
+                    <p class="lead">At ABC Retailers, we live and breathe motocross. Founded by passionate riders, for passionate riders, we are more than just a store — we're a community. We know the thrill of the track, the rush of the ride, and the importance of having the right gear. That's why we’re dedicated to providing the best equipment, apparel, and accessories to help you push your limits and enjoy every ride to the fullest..</p>
+
+                    <p>  </p>
+
+                    <a href="#services" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
+                </div><!-- end messagebox -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
+
+
+
+<hr class="hr1">
+
+<div class="row logos">
+    <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"><img src="~/uploads/logo_01.png" alt="" class="img-repsonsive"></a>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"><img src="~/uploads/logo_02.png" alt="" class="img-repsonsive"></a>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"><img src="~/uploads/logo_03.png" alt="" class="img-repsonsive"></a>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"><img src="~/uploads/logo_04.png" alt="" class="img-repsonsive"></a>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"><img src="~/uploads/logo_05.png" alt="" class="img-repsonsive"></a>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+        <a href="#"><img src="~/uploads/logo_06.png" alt="" class="img-repsonsive"></a>
+    </div>
+</div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+<style>
+    /* Basic Reset */
+    body, h1, h2, p, a {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* General Styles */
+    body {
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Banner Styles */
+    .banner {
+        position: relative;
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    .banner-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .banner-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+        .banner-content h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner-content p {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 18px;
+        text-decoration: none;
+        background-color: #333;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+    /* About Section */
+    .section.wb {
+        padding: 60px 0;
+        background-color: #fff;
+        border-top: 1px solid #e6e6e6;
+    }
+
+    .message-box h4 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .message-box h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .message-box p.lead {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .message-box p {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .img-responsive {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
