@@ -1,5 +1,6 @@
 using CLDV6212_PART_3.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,12 @@ builder.Services.AddControllersWithViews();
 //Adding DB Context builder services with options
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
            options.UseSqlServer(builder.Configuration.GetConnectionString("ABCRetailersDEV")));
+
+//Added service for Authorization for Role based Access
+builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
+               .AddRoles<IdentityRole>()
+               .AddEntityFrameworkStores<ApplicationDBContext>();
+
 
 
 var app = builder.Build();
@@ -27,6 +34,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapRazorPages();
+
 
 app.MapControllerRoute(
     name: "default",

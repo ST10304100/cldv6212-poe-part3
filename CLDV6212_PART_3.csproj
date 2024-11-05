@@ -17,6 +17,19 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\uploads\" />
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\images\logos\" />
+    <Folder Include="wwwroot\images\prettyPhoto\dark_rounded\" />
+    <Folder Include="wwwroot\images\prettyPhoto\dark_square\" />
+    <Folder Include="wwwroot\images\prettyPhoto\default\" />
+    <Folder Include="wwwroot\images\prettyPhoto\facebook\" />
+    <Folder Include="wwwroot\images\prettyPhoto\light_rounded\" />
+    <Folder Include="wwwroot\images\prettyPhoto\light_square\" />
   </ItemGroup>
 
 </Project>
