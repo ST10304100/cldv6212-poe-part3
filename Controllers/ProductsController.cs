@@ -11,12 +11,14 @@ namespace CLDV6212_PART_3.Controllers
     {
         private readonly ApplicationDBContext _context;
         private readonly BlobService _blobService;
+        private readonly QueueService _queueService;
 
 
-        public ProductsController(ApplicationDBContext context, BlobService blobService)
+        public ProductsController(ApplicationDBContext context, BlobService blobService, QueueService queueService)
         {
             _context = context;
             _blobService = blobService;
+            _queueService = queueService;
         }
 
         // GET: Products
@@ -98,6 +100,10 @@ namespace CLDV6212_PART_3.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            string imageUploadMessage = $"Product ID:{product.ProductId}, Image url: {product.ImageUrlpath}, Status: Uploaded Successfully";
+            await _queueService.SendMessageAsync("imageupload", imageUploadMessage);
+
             return View(product);
         }
 
