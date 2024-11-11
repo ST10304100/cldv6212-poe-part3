@@ -12,109 +12,148 @@ Date Accessed: 29 August 2024
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <!-- Basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Site Metas -->
-    <title>ABC Retailers</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-    <!-- Font Awesome-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Fonicy</title>
 
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="~/imagesfavicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="~/imagesapple-touch-icon.png">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="~/css/bootstrap.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="~/css/style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="~/css/responsive.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="~/css/custom.css">
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
 
-    <!-- Modernizer for Portfolio -->
-    <script src="~/js/modernizer.js"></script>
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.~/js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- font awesome style -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="~/css/responsive.css" rel="stylesheet" />
+
 </head>
+
 <body>
 
 
-
-    <div class="top-bar">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="left-top">
-                        <div class="email-box">
-                            <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> ABCRetailersStore@gmail.com</a>
+        <div class="hero_area">
+            <!-- header section strats -->
+            <header class="header_section">
+                <div class="header_top">
+                    <div class="container-fluid header_top_container">
+                        <div class="contact_nav">
+                            <a href="">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <span>
+                                    Call : +01 123455678990
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span>
+                                    Email : demo@gmail.com
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span>
+                                    Location
+                                </span>
+                            </a>
                         </div>
-                        <div class="phone-box">
-                            <a href="tel:0817079211"><i class="fa fa-phone" aria-hidden="true"></i> +27 817079211</a>
+                        <div class="social_box">
+                            <a href="">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="right-top">
-                        <div class="social-box">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss-square" aria-hidden="true"></i></a></li>
-                                <ul>
+                <div class="header_bottom">
+                    <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg custom_nav-container ">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="/images/logo.png" alt="">
+                            </a>
+                            </a>
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class=""> </span>
+                            </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                </li>
+
+                                <!-- Role-based navigation links -->
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Products">Products</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Orders/Admin">Process Orders</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/OrderRequests/">Order Requests</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Identity/Account/Register">Register Users</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Files/">Manage Contracts</a>
+                                    </li>
+                                }
+                                else if (User.IsInRole("Client"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/MyWork/Index">Purchase Products</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/MyWork/Cart">View Cart</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Orders/OrderHistory">My Orders</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Document/Index">View Contracts</a>
+                                    </li>
+                                }
+                            </ul>
                         </div>
+                        <div class="navbar-nav ms-auto p-4 p-lg-0">
+                            <partial name="_LoginPartial" />
+                        </div>
+                        </nav>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <header class="header header_style_01">
-        <nav class="megamenu navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <img src="~/images/POE ABC LOGO.png" alt="POE ABC Logo" width="150" height="100">
+            </header>
+            <!-- end header section -->
 
-
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/Products">Products</a></li>
-                        <li><a href="/Orders">Orders</a></li>
-                        <li><a href="/Customers">Customers</a></li>
-                        <li><a href="/Files">Contract Files</a></li>
-                    </ul>
-                </div>
-                <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <div class="navbar-nav ms-auto p-4 p-lg-0">
-                        @await Html.PartialAsync("_LoginPartial")
-                    </div>
-
-                </div>
-        </nav>
-    </header>
     <div class="">
         <main role="main" class="pb-3">
 
@@ -122,83 +161,35 @@ Date Accessed: 29 August 2024
         </main>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="widget clearfix">
-                        <div class="widget-title">
-                            <img src="~/imageslogos/logo-2.png" alt="" />
-                        </div>
-                        <p>
-                            Have Questions or Concerns?
-                            We're here to help! Reach out to us anytime at ABSRetailersStore@gmail.com or give us a call at +27 81 707 9211
-                        </p>
-                        <p></p>
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="widget clearfix">
-                        <div class="widget-title">
-                            <h3>Pages</h3>
-                        </div>
-
-                        <ul class="footer-links hov">
-                            <li><a href="/">Home <span class="icon icon-arrow-right2"></span></a></li>
-                            <li><a href="/Products">Products <span class="icon icon-arrow-right2"></span></a></li>
-                            <li><a href="/Orders">Orders <span class="icon icon-arrow-right2"></span></a></li>
-                            <li><a href="/Customers">Customers <span class="icon icon-arrow-right2"></span></a></li>
-                            <li><a href="/Files">Files <span class="icon icon-arrow-right2"></span></a></li>
-
-                            <li><a href="/Files">Files <Customer class="icon icon-arrow-right2"></>Customer Create Order</a></li>
-                        </ul><!-- end links -->
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-distributed widget clearfix">
-                        <div class="widget-title">
-                            <h3>Subscribe</h3>
-                            <p>For Riders, By Riders</p>
-                        </div>
-
-                        <div class="footer-right">
-                            <form method="get" action="#">
-                                <input placeholder="Subscribe our newsletter.." name="search">
-                                <i class="fa fa-envelope-o"></i>
-                            </form>
-                        </div>
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </footer><!-- end footer -->
-
-    <div class="copyrights">
-        <div class="container">
-            <div class="footer-distributed">
-                <div class="footer-left">
-                    <p class="footer-company-name">
-                        All Rights Reserved. &copy; 2018 <a href="#">GoodWEB</a> Design By :
-                        <a href="https://html.design/">html design</a>
+            <!-- footer section -->
+            <footer class="footer_section">
+                <div class="container">
+                    <p>
+                        &copy; <span id="displayYear"></span> All Rights Reserved By
+                        <a href="https://html.design/">Free Html Templates</a>
                     </p>
                 </div>
-
-
-            </div>
-        </div><!-- end container -->
-    </div><!-- end copyrights -->
-
-    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
-
-    <!-- ALL JS FILES -->
-    <script src="~/js/all.js"></script>
-    <!-- ALL PLUGINS -->
-    <script src="~/js/custom.js"></script>
-    <script src="~/js/portfolio.js"></script>
-    <script src="~/js/hoverdir.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+            </footer>
+            <!-- footer section -->
+            <!-- jQery -->
+            <script src="~/js/jquery-3.4.1.min.js"></script>
+            <!-- popper js -->
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            </script>
+            <!-- bootstrap js -->
+            <script src="~/js/bootstrap.js"></script>
+            <!-- owl slider -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+            </script>
+            <!--  OwlCarousel 2 - Filter -->
+            <script src="https://huynhhuynh.github.io/owlcarousel2-filter/dist/owlcarousel2-filter.min.js"></script>
+            <!-- custom js -->
+            <script src="~/js/custom.js"></script>
+            <!-- Google Map -->
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+            </script>
+            <!-- End Google Map -->
+        @await RenderSectionAsync("Scripts", required: false)
 
 </body>
 </html>

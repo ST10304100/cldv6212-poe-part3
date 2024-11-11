@@ -1,180 +1,60 @@
-/******************************************
-    Version: 1.0
-/****************************************** */
+// to get current year
+function getYear() {
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    document.querySelector("#displayYear").innerHTML = currentYear;
+}
 
-(function($) {
-    "use strict";
+getYear();
 
-   /* ==============================================
-    Fixed menu
-    =============================================== */
-    
-	$(window).on('scroll', function () {
-		if ($(window).scrollTop() > 50) {
-			$('.header_style_01').addClass('fixed-menu');
-		} else {
-			$('.header_style_01').removeClass('fixed-menu');
-		}
-	});
-	
-	
-   /* ==============================================
-		Scroll to top  
-	============================================== */
-		
-	if ($('#scroll-to-top').length) {
-		var scrollTrigger = 100, // px
-			backToTop = function () {
-				var scrollTop = $(window).scrollTop();
-				if (scrollTop > scrollTrigger) {
-					$('#scroll-to-top').addClass('show');
-				} else {
-					$('#scroll-to-top').removeClass('show');
-				}
-			};
-		backToTop();
-		$(window).on('scroll', function () {
-			backToTop();
-		});
-		$('#scroll-to-top').on('click', function (e) {
-			e.preventDefault();
-			$('html,body').animate({
-				scrollTop: 0
-			}, 700);
-		});
-	}
 
-    /* ==============================================
-       LOADER -->
-        =============================================== */
 
-    $(window).load(function() {
-        $("#preloader").on(500).fadeOut();
-        $(".preloader").on(600).fadeOut("slow");
-    });
-
-    /* ==============================================
-     FUN FACTS -->
-     =============================================== */
-
-    function count($this) {
-        var current = parseInt($this.html(), 10);
-        current = current + 50; /* Where 50 is increment */
-        $this.html(++current);
-        if (current > $this.data('count')) {
-            $this.html($this.data('count'));
-        } else {
-            setTimeout(function() {
-                count($this)
-            }, 30);
+// owl carousel slider js
+var owl = $('.project_carousel').owlCarousel({
+    loop: false,
+    margin: 15,
+    center: true,
+    startPosition: 2,
+    autoplay: true,
+    navText: [
+        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+    ],
+    autoplayHoverPause: true,
+    responsive: {
+        0: {
+            center: false,
+            items: 1,
+            margin: 0
+        },
+        769: {
+            items: 2,
+        },
+        992: {
+            center: true,
+            items: 3
         }
     }
-    $(".stat_count, .stat_count_download").each(function() {
-        $(this).data('count', parseInt($(this).html(), 10));
-        $(this).html('0');
-        count($(this));
-    });
-	
-	
-	/* ==============================================
-     FUN FACTS -->
-     =============================================== */
-	
-	$(".slider-wrapper").owlCarousel({
-        items: 1,
-        nav: true,
-        dots: false,
-        autoplay: true,
-        loop: true,
-        navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-        mouseDrag: false,
-        touchDrag: false,
-        smartSpeed: 700
-    });
+})
 
-    /* ==============================================
-     TOOLTIP -->
-     =============================================== */
-    $('[data-toggle="tooltip"]').tooltip()
-    $('[data-toggle="popover"]').popover()
 
-    /* ==============================================
-     CONTACT -->
-     =============================================== */
-    jQuery(document).ready(function() {
-        $('#contactform').submit(function() {
-            var action = $(this).attr('action');
-            $("#message").slideUp(750, function() {
-                $('#message').hide();
-                $('#submit')
-                    .after('<img src="images/ajax-loader.gif" class="loader" />')
-                    .attr('disabled', 'disabled');
-                $.post(action, {
-                        first_name: $('#first_name').val(),
-                        last_name: $('#last_name').val(),
-                        email: $('#email').val(),
-                        phone: $('#phone').val(),
-                        select_service: $('#select_service').val(),
-                        select_price: $('#select_price').val(),
-                        comments: $('#comments').val(),
-                        verify: $('#verify').val()
-                    },
-                    function(data) {
-                        document.getElementById('message').innerHTML = data;
-                        $('#message').slideDown('slow');
-                        $('#contactform img.loader').fadeOut('slow', function() {
-                            $(this).remove()
-                        });
-                        $('#submit').removeAttr('disabled');
-                        if (data.match('success') != null) $('#contactform').slideUp('slow');
-                    }
-                );
-            });
-            return false;
-        });
-    });
+// owl.owlcarousel2_filter
 
-    /* ==============================================
-     CODE WRAPPER -->
-     =============================================== */
+$('.owl-filter-bar').on('click', '.item', function (e) {
+    var $items = $('.owl-filter-bar a')
+    var $item = $(this);
+    var filter = $item.data('owl-filter')
+    $items.removeClass("active");
+    $item.addClass("active");
+    owl.owlcarousel2_filter(filter);
 
-    $('.code-wrapper').on("mousemove", function(e) {
-        var offsets = $(this).offset();
-        var fullWidth = $(this).width();
-        var mouseX = e.pageX - offsets.left;
-
-        if (mouseX < 0) {
-            mouseX = 0;
-        } else if (mouseX > fullWidth) {
-            mouseX = fullWidth
-        }
-
-        $(this).parent().find('.divider-bar').css({
-            left: mouseX,
-            transition: 'none'
-        });
-        $(this).find('.design-wrapper').css({
-            transform: 'translateX(' + (mouseX) + 'px)',
-            transition: 'none'
-        });
-        $(this).find('.design-image').css({
-            transform: 'translateX(' + (-1 * mouseX) + 'px)',
-            transition: 'none'
-        });
-    });
-    $('.divider-wrapper').on("mouseleave", function() {
-        $(this).parent().find('.divider-bar').css({
-            left: '50%',
-            transition: 'all .3s'
-        });
-        $(this).find('.design-wrapper').css({
-            transform: 'translateX(50%)',
-            transition: 'all .3s'
-        });
-        $(this).find('.design-image').css({
-            transform: 'translateX(-50%)',
-            transition: 'all .3s'
-        });
-    });
-
-})(jQuery);
+    e.preventDefault();
+})
+/** google_map js **/
+function myMap() {
+    var mapProp = {
+        center: new google.maps.LatLng(40.712775, -74.005973),
+        zoom: 18,
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
