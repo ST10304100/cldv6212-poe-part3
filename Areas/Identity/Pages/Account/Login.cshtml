@@ -46,6 +46,127 @@
         </div>
     </div>
 </div>
+<style>
+    /* Global Styles */
+body {
+    background-color: #261132; /* Dark Purple background */
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 36px;
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+hr {
+    border-top: 1px solid #534B58; /* Grey line */
+    margin-bottom: 2rem;
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    background-color: #534B58; /* Grey background for the form */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-section {
+    color: #ffffff;
+}
+
+/* Form Styles */
+.form-floating {
+    margin-bottom: 1.5rem;
+}
+
+.form-floating input {
+    background-color: #3C3241; /* Dark input fields */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-floating input::placeholder {
+    color: #aaa;
+}
+
+.form-floating label {
+    color: #ddd;
+    font-weight: bold;
+}
+
+.text-danger {
+    color: #f44336;
+}
+
+/* Remember Me Checkbox */
+.checkbox label {
+    color: #ddd;
+}
+
+/* Buttons */
+.btn-login {
+        background-color: #f07b26; /* Dark Purple button */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #534B58; /* Hover effect to grey */
+    color: #fff;
+}
+
+/* Extra Links */
+.extra-links {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.extra-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.extra-links a:hover {
+    color: #f44336; /* Red hover effect */
+}
+
+#forgot-password {
+    margin-top: 1rem;
+}
+
+</style>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

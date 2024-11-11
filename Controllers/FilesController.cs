@@ -1,9 +1,11 @@
 ﻿using CLDV6212_PART_3.Models;
 using CLDV6212_PART_3.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CLDV6212_PART_3.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class FilesController : Controller
     {
         private readonly AzureFileShareService _fileShareService;

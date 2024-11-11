@@ -11,16 +11,6 @@
     <a class="create-new" asp-action="Create">Create New</a>
 
 
-    <div class="filter-container">
-        <p>Filter By Category:</p>
-        @using (Html.BeginForm("Index", "Products", FormMethod.Get))
-        {
-            <div class="form-group">
-                @Html.DropDownList("category", ViewBag.Category as SelectList, "All Categories", new { @class = "form-control" })
-            </div>
-            <button type="submit" class="btn btn-primary">Filter</button>
-        }
-    </div>
 
     <table>
         <thead>
@@ -47,12 +37,149 @@
                         <img src="@item.ImageUrlpath" alt="Product Image" style="width: 100px; height: 110px;" />
                     </td>
                     <td class="actions">
-                        <a href="@Url.Action("Edit", new { id = item.ProductId })"><i class="fas fa-edit"></i> Edit</a>
-                        <a href="@Url.Action("Details", new { id = item.ProductId })"><i class="fas fa-info-circle"></i> Details</a>
-                        <a href="@Url.Action("Delete", new { id = item.ProductId })"><i class="fas fa-trash-alt"></i> Delete</a>
+                        <a href="@Url.Action("Edit", new { id = item.ProductId })"> Edit</a>
+                        <a href="@Url.Action("Details", new { id = item.ProductId })"> Details</a>
+                        <a href="@Url.Action("Delete", new { id = item.ProductId })"> Delete</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+<style>
+    /* General Styling */
+    body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-products {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    h1 {
+        color: #f07b26;
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    a.create-new {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #f07b26;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+        a.create-new:hover {
+            background-color: #d96a1f;
+        }
+
+    /* Filter Section */
+    .filter-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+        .filter-container p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .filter-container .form-group select.form-control {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: auto;
+        }
+
+        .filter-container button {
+            background-color: #f07b26;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .filter-container button:hover {
+                background-color: #d96a1f;
+            }
+
+    /* Table Styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+        table thead th {
+            background-color: #f07b26;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid #000;
+        }
+
+        table tbody tr {
+            transition: background-color 0.3s;
+        }
+
+            table tbody tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            table tbody tr:hover {
+                background-color: #ffe8d4;
+            }
+
+        table td, table th {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        /* Image Styling */
+        table img {
+            width: 80px;
+            height: auto;
+            border-radius: 4px;
+        }
+
+    /* Action Buttons Styling */
+    .actions a {
+        color: #f07b26;
+        text-decoration: none;
+        margin-right: 10px;
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+
+        .actions a:hover {
+            text-decoration: underline;
+            color: #d96a1f;
+        }
+
+    .actions i {
+        margin-right: 5px;
+        color: #333;
+    }
+
+</style>

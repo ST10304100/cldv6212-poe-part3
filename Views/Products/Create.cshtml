@@ -27,11 +27,11 @@
         <div class="form-group">
             <label asp-for="Category" class="control-label"></label>
             <select asp-for="Category" class="form-control">
-                <option value="">-- Select Category --</option>
-                <option value="t-shirt">T-Shirt</option>
-                <option value="sneakers">Sneakers</option>
-                <option value="hoodie">Hoodie</option>
-                <option value="jersey">Jersey</option>
+                <option value="">-- Select a Category --</option>
+                <option value="helmets">Helmet</option>
+                <option value="body-suit">Body Suit</option>
+                <option value="footwear">Footwear</option>
+                <option value="gear">Gear</option>
             </select>
             <span asp-validation-for="Category" class="text-danger"></span>
         </div>
@@ -56,6 +56,99 @@
 
 </div>
 
+<style>
+    /* Container Styling */
+    .container-product {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        color: #333;
+    }
+
+    h1 {
+        color: #f07b26;
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Form Styling */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+    .form-control {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+        color: #333;
+    }
+
+        .form-control:focus {
+            border-color: #f07b26;
+            outline: none;
+            box-shadow: 0 0 5px rgba(240, 123, 38, 0.4);
+        }
+
+    /* Validation Styling */
+    .text-danger {
+        color: red;
+        font-size: 0.9em;
+    }
+
+    /* Checkbox Styling */
+    #Availability {
+        margin-top: 10px;
+    }
+
+    /* Button Styling */
+    .btn-create {
+        background-color: #f07b26;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-create:hover {
+            background-color: #d96a1f;
+        }
+
+    /* Back Link Styling */
+    .container-product div i {
+        color: #f07b26;
+        margin-right: 8px;
+    }
+
+    .container-product div a {
+        color: #f07b26;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .container-product div a:hover {
+            text-decoration: underline;
+        }
+</style>
 
 @section Scripts {
     @{

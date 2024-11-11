@@ -1,40 +1,159 @@
 ﻿@model List<CLDV6212_PART_3.Models.FileModel>
 
-<h1>Files</h1>
+<div class="container-files">
+    <h1>Files</h1>
 
-<!-- Display any messages -->
-@if (TempData["Message"] != null)
-{
-    <div class="alert alert-info">
-        @TempData["Message"]
-    </div>
-}
+    <!-- Display any messages -->
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["Message"]
+        </div>
+    }
 
-<!-- Upload form -->
-<form asp-action="Upload" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="file">Choose a file to upload:</label>
-        <input type="file" name="file" class="form-control" />
-        <button type="submit" class="btn btn-primary mt-2">Upload</button>
-    </div>
-</form>
+    <!-- Upload form -->
+    <form asp-action="Upload" method="post" enctype="multipart/form-data" class="upload-form">
+        <div class="form-group">
+            <label for="file">Choose a file to upload:</label>
+            <input type="file" name="file" class="form-control" />
+            <button type="submit" class="btn-upload">Upload</button>
+        </div>
+    </form>
 
-<!-- Display uploaded files -->
-@if (Model != null && Model.Count > 0)
-{
-    <ul>
-        @foreach (var file in Model)
-        {
-            <li>
-                @file.Name -
-                Size: @file.DisplaySize -
-                Last Modified: @file.LastModified?.ToString("g")
-                - <a asp-action="DownloadFile" asp-route-fileName="@file.Name">Download</a>
-            </li>
+    <!-- Display uploaded files -->
+    @if (Model != null && Model.Count > 0)
+    {
+        <ul class="file-list">
+            @foreach (var file in Model)
+            {
+                <li class="file-item">
+                    <span class="file-info">
+                        <strong>@file.Name</strong> - Size: @file.DisplaySize - Last Modified: @file.LastModified?.ToString("g")
+                    </span>
+                    <a class="btn-download" asp-action="DownloadFile" asp-route-fileName="@file.Name">Download</a>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p class="no-files">No files found or model is null.</p>
+    }
+</div>
+
+<style>
+    /* General Styling */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-files {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        text-align: center;
+    }
+
+    /* Page Title */
+    h1 {
+        color: #f07b26;
+        font-size: 2.2em;
+        margin-bottom: 25px;
+    }
+
+    /* Alert Message Styling */
+    .alert-info {
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+        color: #0c5460;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    /* Upload Form Styling */
+    .upload-form {
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    .form-group label {
+        font-size: 1.1em;
+        color: #534b58;
+    }
+
+    .form-control {
+        padding: 8px;
+        font-size: 1em;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .btn-upload {
+        padding: 10px 25px;
+        background-color: #f07b26;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-upload:hover {
+            background-color: #d2691e;
         }
-    </ul>
-}
-else
-{
-    <p>No files found or model is null.</p>
-}
+
+    /* Uploaded Files List */
+    .file-list {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .file-item {
+        background-color: #fafafa;
+        padding: 15px;
+        margin-bottom: 12px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .file-info {
+        color: #333;
+        font-size: 0.95em;
+    }
+
+    .btn-download {
+        background-color: #f07b26;
+        color: #fff;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-download:hover {
+            background-color: #d2691e;
+        }
+
+    .no-files {
+        color: #777;
+        font-style: italic;
+    }
+</style>
