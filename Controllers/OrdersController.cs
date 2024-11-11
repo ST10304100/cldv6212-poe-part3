@@ -12,13 +12,15 @@ namespace CLDV6212_PART_3.Controllers
     {
         private readonly ApplicationDBContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly QueueService _queueService;
+
      
 
-        public OrdersController(ApplicationDBContext context, UserManager<IdentityUser> userManager)
+        public OrdersController(ApplicationDBContext context, UserManager<IdentityUser> userManager, QueueService queueService)
         {
             _context = context;
             _userManager = userManager;
-            
+            _queueService = queueService;
         }
 
 
@@ -28,6 +30,7 @@ namespace CLDV6212_PART_3.Controllers
         {
             var orders = await _context.Orders
                 .Include(o => o.User)
+                .Where(o => o.Status != "Shopping" && o.TotalPrice.HasValue)
                 .ToListAsync();
 
             var orderViewModels = orders.Select(o => new OrderAdminViewModel
@@ -56,6 +59,10 @@ namespace CLDV6212_PART_3.Controllers
             // Update the OrderStatus to "Approved"
             order.Status = "Approved";
 
+            // Send a message to the queue
+            string message = $"Processing Order: Order ID: {order.OrderId}";
+            await _queueService.SendMessageAsync("createdorders", message);
+
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Admin));
@@ -69,7 +76,7 @@ namespace CLDV6212_PART_3.Controllers
             var userId = await _userManager.GetUserIdAsync(user);
 
             var orders = await _context.Orders
-                .Where(o => o.UserId == userId)
+                .Where(o => o.UserId == userId && o.Status != "Shopping" && o.TotalPrice.HasValue)
                 .Select(o => new OrderHistoryViewModel
                 {
                     OrderId = o.OrderId,

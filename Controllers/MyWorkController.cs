@@ -141,7 +141,7 @@ namespace CLDV6212_PART_3.Controllers
 
             // Send a message to the queue
             string message = $"Processing Order: Order ID: {openOrder.OrderId}";
-            await _queueService.SendMessageAsync("processorders", message);
+            await _queueService.SendMessageAsync("createdorders", message);
 
             return Json(new { success = true });
 
