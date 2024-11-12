@@ -52,97 +52,110 @@
 </div>
 <style>
     /* General Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
-}
+    body {
+        background-color: #261132; /* Dark purple background */
+        color: white;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+    .container {
+        max-width: 500px;
+        margin: 5% auto;
+        padding: 2rem;
+        background-color: #534B58; /* Greyish background for the form */
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-/* Page Title */
-h1 {
-    color: #f07b26;
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
+    /* Page Title */
+    h1 {
+        color: #ffffff;
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
 
-/* Section Title */
-h2 {
-    color: #534b58;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    text-align: center;
-}
+    /* Section Title */
+    h2 {
+        color: #ffffff;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
-/* Form Styling */
-form {
-    display: flex;
-    flex-direction: column;
-}
+    hr {
+        border-top: 1px solid #534B58;
+        margin-bottom: 2rem;
+    }
 
-.form-floating {
-    margin-bottom: 20px;
-}
+    /* Form Styling */
+    form {
+        display: flex;
+        flex-direction: column;
+    }
 
-label {
-    color: #534b58;
-    font-size: 1.1em;
-}
+    .form-floating {
+        margin-bottom: 1.5rem;
+    }
 
-input, select {
-    padding: 12px;
-    font-size: 1.1em;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    width: 100%;
-    background-color: #fafafa;
-    margin-top: 5px;
-}
+        .form-floating input,
+        .form-floating select {
+            background-color: #3C3241; /* Darker input fields */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }
 
-input:focus, select:focus {
-    border-color: #f07b26;
-    outline: none;
-}
+            .form-floating input::placeholder {
+                color: #aaa;
+            }
 
-span.text-danger {
-    font-size: 0.9em;
-    color: #d9534f;
-}
+        .form-floating label {
+            color: #ddd;
+            font-weight: bold;
+        }
 
-/* Submit Button */
-button {
-    padding: 12px 30px;
-    background-color: #f07b26;
-    color: white;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
+    span.text-danger {
+        font-size: 0.9em;
+        color: #f44336;
+    }
 
-button:hover {
-    background-color: #d2691e;
-}
+    /* Buttons */
+    .btn-reg {
+        padding: 12px 20px;
+        background-color: #f07b26; /* Orange button */
+        color: white;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
 
-/* Validation Summary */
-.text-danger {
-    margin-top: 10px;
-}
+        .btn-reg:hover {
+            background-color: #d2691e; /* Darker orange on hover */
+        }
 
+    /* Validation Summary */
+    .text-danger {
+        margin-top: 10px;
+    }
 
+    /* Links */
+    a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
 
+        a:hover {
+            color: #f44336; /* Red on hover */
+        }
 </style>
 
 @section Scripts {
