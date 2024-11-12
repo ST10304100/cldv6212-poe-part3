@@ -32,7 +32,10 @@ builder.Services.AddSingleton<AzureFileShareService>(sp =>
 
 //Adding DB Context builder services with options
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
-           options.UseSqlServer(builder.Configuration.GetConnectionString("ABCRetailersDEV")));
+           options.UseSqlServer(builder.Configuration.GetConnectionString("ABCRetailersLIVE")));
+
+//builder.Services.AddDbContext<ApplicationDBContext>(options =>
+           //options.UseSqlServer(builder.Configuration.GetConnectionString("ABCRetailersDEV")));
 
 //Added service for Authorization for Role based Access
 builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
